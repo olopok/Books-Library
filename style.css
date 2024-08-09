@@ -1,0 +1,123 @@
+*,
+::after,
+::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    display: block;
+    justify-items: center;
+}
+
+.button {
+    text-align: center;
+    padding: 0.45em;
+    background-color: rgb(83, 63, 63);
+    color: whitesmoke;
+
+}
+
+header {
+    width: 100%;
+    height: 5em;
+    display: flex;
+    background-color: rgb(83, 63, 63);
+    color: whitesmoke;
+    align-items: center;
+    justify-content: center;
+}
+
+caption {
+    padding: 2em;
+    text-decoration: underline;
+}
+
+main {
+    width: 100%;
+    height: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 2px solid rgb(200, 200, 200);
+    letter-spacing: 1px;
+
+}
+
+footer {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    padding: 1em;
+}
+
+td,
+th {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 10px 20px;
+    width: max-content;
+    height: auto;
+}
+
+th {
+    background-color: rgb(172, 164, 156);
+}
+
+td {
+    text-align: left;
+}
+
+tr:nth-child(even) td {
+    background-color: rgb(218, 213, 213);
+}
+
+tr:nth-child(odd) td {
+    background-color: rgb(197, 189, 189);
+}
+
+/* dialog {
+    display: block;
+    width: 20vw;
+    height: fit-content;
+} */
+
+ul,
+li {
+    display: flex;
+    flex-direction: column;
+    /* justify-items: center; */
+    align-content: space-between;
+    padding: 0.5em;
+}
+
+label {
+    font-size: small;
+    font-weight: bold;
+    font-style: italic;
+}
+
+input[type=radio] {
+    margin: 1em;
+}
+
+.frm-btn-container {
+    display: flex;
+    justify-content: space-evenly;
+    flex: 1;
+    margin-top: 1.3em;
+}
+
+.frm-btn {
+    flex: 1;
+    margin-inline: 0.3em;
+}
+
+.btn-show-modal {
+    width: 75px;
+    height: 32px;
+}

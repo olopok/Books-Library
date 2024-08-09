@@ -1,1 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="modal.css">
+</head>
+
+<body>
+    <header>
+        <h1>My Library</h1>
+    </header>
+    <main>
+        <table>
+            <caption>A list of book.</caption>
+            <thead>
+                <th>Author</th>
+                <th>Title</th>
+                <th>N<sup>o</sup> of pages</th>
+                <th>Notes</th>
+                <th>Delete</th>
+            </thead>
+            <tbody>
+
+            </tbody>
+
+        </table>
+        <dialog>
+            <form>
+                <ul>
+                    <li>
+                        <label for="author">Author</label>
+                        <input type="text" name="author" id="author" required>
+                    </li>
+                    <li>
+                        <label for="title">Title</label>
+                        <input type="text" name="title" id="title" required>
+                    </li>
+                    <li>
+                        <label for="pages">Number of pages</label>
+                        <input type="text" name="pages" id="pages">
+                    </li>
+                    <li>
+                        <fieldset>
+                            <Legend>Do you have read the book?</Legend>
+                            <label for="read">Read</label>
+                            <input type="radio" name="notes" value="read" id="read">
+                            <label for="unread">Not yet</label>
+                            <input type="radio" name="notes" value="unread" id="unread">
+                        </fieldset>
+                    </li>
+                    <div class="frm-btn-container">
+                        <button class="button frm-btn" type="button">Close</button>
+                        <button class="button frm-btn" type="reset">Reset</button>
+                        <button class="button frm-btn" type="submit">Add Book</button>
+                    </div>
+                </ul>
+            </form>
+        </dialog>
+                </ul>
+            </form>
+        </dialog>
+    
+    </main>
+    <footer>
+        <button class="btn-show-modal button" type="button">Add</button>
+    </footer>
+    <script src="scripts.js"></script>
+</body>
+
+</html>
