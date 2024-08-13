@@ -29,7 +29,7 @@
 
         </table>
         <dialog>
-            <form autocomplete="off">
+            <form autocomplete="off" method="dialog">
                 <ul>
                     <li>
                         <label for="author">Author</label>
@@ -41,21 +41,21 @@
                     </li>
                     <li>
                         <label for="pages">Number of pages</label>
-                        <input type="text" name="pages" id="pages">
+                        <input type="text" name="pages" id="pages" required>
                     </li>
                     <li>
                         <fieldset>
                             <Legend>Do you have read the book?</Legend>
                             <label for="read">Read</label>
-                            <input type="radio" name="notes" value="read" id="read">
+                            <input type="radio" name="notes" value="read" id="read" required>
                             <label for="unread">Not yet</label>
-                            <input type="radio" name="notes" value="unread" id="unread">
+                            <input type="radio" name="notes" value="unread" id="unread" required>
                         </fieldset>
                     </li>
                     <div class="frm-btn-container">
                         <button class="button frm-btn" id="close" type="button">Close</button>
                         <button class="button frm-btn" id="reset" type="reset">Reset</button>
-                        <button class="button frm-btn" id="submit" type="submit">Add Book</button>
+                        <button class="button frm-btn" id="submit" type="submit">Add</button>
                     </div>
                 </ul>
             </form>
@@ -66,7 +66,7 @@
 
     </main>
     <footer>
-        <button class="btn-show-modal button" type="button">Add</button>
+        <button class="btn-show-modal button" type="button">Add Book</button>
     </footer>
     <script src="scripts.js"></script>
 </body>

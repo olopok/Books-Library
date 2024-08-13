@@ -72,7 +72,7 @@ th {
 }
 
 td {
-    text-align: left;
+    text-align: center;
 }
 
 tr:nth-child(even) td {
@@ -120,7 +120,12 @@ input[type=radio] {
     margin-inline: 0.3em;
 }
 
-/* .btn-show-modal {
-    width: 75px;
-    height: 32px;
-} */
+#readButton {
+    background-color: darkgreen;
+    color: whitesmoke;
+}
+
+#unReadButton {
+    background-color: red;
+    color: whitesmoke;
+}
