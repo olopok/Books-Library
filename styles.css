@@ -120,12 +120,12 @@ input[type=radio] {
     margin-inline: 0.3em;
 }
 
-#readButton {
-    background-color: darkgreen;
-    color: whitesmoke;
+.readButton {
+    background-color: rgb(169, 231, 169);
+    color: rgb(139, 125, 125);
 }
 
-#unReadButton {
-    background-color: red;
+.unReadButton {
+    background-color: rgb(182, 58, 54);
     color: whitesmoke;
 }
