@@ -29,35 +29,57 @@ DIALOG.addEventListener('submit', (e) => {
     e.preventDefault();
     const infoBook = Object.fromEntries(new FormData(FORM));
     const newBook = new Book(infoBook.author, infoBook.title, infoBook.pages, infoBook.notes);
+
+    // Book.prototype.toggle = function () {
+    function toggle(){
+        if (newBook.note === 'read') {
+            READ_BUTTON.classList.remove('readButton');
+            READ_BUTTON.classList.add('unReadButton');
+            READ_BUTTON.textContent = 'unread';
+            newBook.note = 'unread';
+        } else if (newBook.note === 'unread') {
+            READ_BUTTON.classList.remove('unReadButton');
+            READ_BUTTON.classList.add('readButton');
+            READ_BUTTON.textContent = 'read';
+            newBook.note = 'read';
+        }
+    }
+    
+
     library.push(newBook);
-    console.log(library);
-    // addBook();
-    console.log(Object.getPrototypeOf(newBook));
 
     const TABLE = document.querySelector('tbody');
     const ROW = document.createElement('tr');
     const READ_BUTTON = document.createElement('button');
+    READ_BUTTON.className = "button toggle";
     const DEL_BTN = document.createElement('button');
     DEL_BTN.setAttribute('id', 'delete');
     DEL_BTN.className = "button";
     DEL_BTN.textContent = "Delete";
 
+
     let newEl = Object.values(library[index]);
-    console.log(newEl);
     for (let x in newEl) {
         const TABLE_DATA = document.createElement('td');
-        READ_BUTTON.className = "button";
         if (newEl[x] === "read") {
             READ_BUTTON.classList.add("readButton");
             READ_BUTTON.textContent = newEl[x];
             TABLE_DATA.appendChild(READ_BUTTON);
             ROW.appendChild(TABLE_DATA);
+            READ_BUTTON.addEventListener('click', (e) => {
+                const target = e.target;
+                toggle(target);
+            });
             TABLE.appendChild(ROW);
         } else if (newEl[x] === "unread") {
             READ_BUTTON.classList.add("unReadButton");
             READ_BUTTON.textContent = newEl[x];
             TABLE_DATA.appendChild(READ_BUTTON);
             ROW.appendChild(TABLE_DATA);
+            READ_BUTTON.addEventListener('click', (e) => {
+                target = e.target;
+                toggle(target);
+            });
             TABLE.appendChild(ROW);
         } else
             TABLE_DATA.textContent = `${newEl[x]}`;
@@ -70,26 +92,11 @@ DIALOG.addEventListener('submit', (e) => {
     TABLE_DEL_BUTTON.appendChild(DEL_BTN);
     ROW.appendChild(TABLE_DEL_BUTTON);
 
-
     newEl = [];
     index++;
 
-    READ_BUTTON.addEventListener('click', (e) => {
-        // alert('Merdaaaa!!!!')
-        newBook.toggle();
-    })
+    // console.log(library);
 
-    Book.prototype.toggle = function () {
-        if (READ_BUTTON.textContent === "read") {
-            READ_BUTTON.classList.remove("readButton")
-        READ_BUTTON.classList.add("unReadButton");
-        READ_BUTTON.textContent = "unread"
-    } else if (READ_BUTTON.textContent === "unread") {
-        READ_BUTTON.classList.remove("unReadButton");
-        READ_BUTTON.classList.add("readButton");
-        READ_BUTTON.textContent = "read";
-    }
-    }
 
     document.querySelector('form').reset();
     DIALOG.close();
