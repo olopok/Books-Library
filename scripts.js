@@ -30,21 +30,30 @@ DIALOG.addEventListener('submit', (e) => {
     const infoBook = Object.fromEntries(new FormData(FORM));
     const newBook = new Book(infoBook.author, infoBook.title, infoBook.pages, infoBook.notes);
 
-    // Book.prototype.toggle = function () {
-    function toggle(){
+    function toggle(tg) {
         if (newBook.note === 'read') {
-            READ_BUTTON.classList.remove('readButton');
-            READ_BUTTON.classList.add('unReadButton');
-            READ_BUTTON.textContent = 'unread';
+            tg.classList.remove('readButton');
+            tg.classList.add('unReadButton');
+            tg.textContent = 'unread';
             newBook.note = 'unread';
         } else if (newBook.note === 'unread') {
-            READ_BUTTON.classList.remove('unReadButton');
-            READ_BUTTON.classList.add('readButton');
-            READ_BUTTON.textContent = 'read';
+            tg.classList.remove('unReadButton');
+            tg.classList.add('readButton');
+            tg.textContent = 'read';
             newBook.note = 'read';
         }
     }
-    
+
+    function deleteBook(del) {
+        const x = del.parentNode;
+        const X1 = x.parentElement.id;
+        const element = document.getElementById(X1);
+        element.remove();
+        library.splice(X1, 1);
+        console.log(library)
+
+    }
+
 
     library.push(newBook);
 
@@ -53,7 +62,6 @@ DIALOG.addEventListener('submit', (e) => {
     const READ_BUTTON = document.createElement('button');
     READ_BUTTON.className = "button toggle";
     const DEL_BTN = document.createElement('button');
-    DEL_BTN.setAttribute('id', 'delete');
     DEL_BTN.className = "button";
     DEL_BTN.textContent = "Delete";
 
@@ -91,12 +99,13 @@ DIALOG.addEventListener('submit', (e) => {
     const TABLE_DEL_BUTTON = document.createElement('td');
     TABLE_DEL_BUTTON.appendChild(DEL_BTN);
     ROW.appendChild(TABLE_DEL_BUTTON);
+    TABLE_DEL_BUTTON.addEventListener('click', (e) => {
+        const DEL_BUTTON_TARGET = e.target;
+        deleteBook(DEL_BUTTON_TARGET);
+    })
 
     newEl = [];
     index++;
-
-    // console.log(library);
-
 
     document.querySelector('form').reset();
     DIALOG.close();
